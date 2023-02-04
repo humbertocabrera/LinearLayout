@@ -18,8 +18,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        inicializarVistas()
+        asignarEventos()
+    }
+
+    private fun inicializarVistas(){
         bnSuma = findViewById(R.id.bnSuma)
         bnResta = findViewById(R.id.bnResta)
+        etNumeroPrimero = findViewById(R.id.etNumeroPrimero)
+        etNumeroSegundo = findViewById(R.id.etNumeroSegundo)
+    }
+
+    private fun asignarEventos(){
         bnSuma?.setOnClickListener(this)
         bnResta?.setOnClickListener(this)
     }
@@ -27,10 +37,28 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         //Aquí entrara los click de las vistas
         //Snackbar y Toast hacen lo mismo, pero visualmente se ve diferente
+        val numeroUno = etNumeroPrimero?.text.toString().toFloatOrNull()
+        val numeroDos = etNumeroSegundo?.text.toString().toFloatOrNull()
+
+        if (numeroUno == null){
+            return
+        }
+        if (numeroDos == null){
+            return
+        }
+
+        val aritmetica = Aritmetica()
 
         when(p0?.id){
-            R.id.bnSuma -> Toast.makeText(this,"Hice clic en suma", Toast.LENGTH_LONG).show()
-            R.id.bnResta -> Snackbar.make(p0, "Hice clicl en Resta", Snackbar.LENGTH_LONG).show()
+            R.id.bnSuma -> {
+                val suma = aritmetica.suma(numeroUno,numeroDos)
+                val mensaje = Mensajes("La sumatoria fue $suma", this)
+            }
+
+            R.id.bnResta -> {
+                val resta = aritmetica.resta(numeroUno,numeroDos)
+                val mensaje = Mensajes("El resultado fue $resta", this)
+            }
         }
 
     }
