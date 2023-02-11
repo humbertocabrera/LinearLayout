@@ -4,4 +4,7 @@
     <string name="dame_un_segundo_numero">Dame un segundo numero</string>
     <string name="suma">Suma</string>
     <string name="resta">Resta</string>
+    <string name="multiplicar">Multiplicar</string>
+    <string name="mult">Mult</string>
+    <string name="divisi_n">División</string>
 </resources>

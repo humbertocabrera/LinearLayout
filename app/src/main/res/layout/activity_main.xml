@@ -32,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+
     <LinearLayout
         android:orientation="horizontal"
         android:gravity="center_horizontal"
@@ -49,6 +50,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/resta"
+            android:layout_margin="6dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/bnMultiplicar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mult"
+            android:layout_margin="6dp"/>
+        <Button
+            android:id="@+id/bnDivision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/divisi_n"
             android:layout_margin="6dp"/>
     </LinearLayout>
 

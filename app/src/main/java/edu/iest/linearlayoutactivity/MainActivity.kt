@@ -12,6 +12,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private var bnSuma : Button? = null
     private var bnResta : Button? = null
+    private var bnMulti : Button? = null
+    private var bnDivision : Button? = null
     private var etNumeroPrimero : EditText? = null
     private var etNumeroSegundo : EditText? = null
 
@@ -25,6 +27,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun inicializarVistas(){
         bnSuma = findViewById(R.id.bnSuma)
         bnResta = findViewById(R.id.bnResta)
+        bnMulti = findViewById(R.id.bnMultiplicar)
+        bnDivision = findViewById(R.id.bnDivision)
         etNumeroPrimero = findViewById(R.id.etNumeroPrimero)
         etNumeroSegundo = findViewById(R.id.etNumeroSegundo)
     }
@@ -32,6 +36,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun asignarEventos(){
         bnSuma?.setOnClickListener(this)
         bnResta?.setOnClickListener(this)
+        bnMulti?.setOnClickListener(this)
+        bnDivision?.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
@@ -53,11 +59,25 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.bnSuma -> {
                 val suma = aritmetica.suma(numeroUno,numeroDos)
                 val mensaje = Mensajes("La sumatoria fue $suma", this)
+                mensaje.mostrarToast()
             }
 
             R.id.bnResta -> {
                 val resta = aritmetica.resta(numeroUno,numeroDos)
                 val mensaje = Mensajes("El resultado fue $resta", this)
+                mensaje.mostrarToast()
+            }
+
+            R.id.bnMultiplicar -> {
+                val multi = aritmetica.multiplicacion(numeroUno,numeroDos)
+                val mensaje = Mensajes("El resultado fue $multi", this)
+                mensaje.mostrarToast()
+            }
+
+            R.id.bnDivision -> {
+                val division = aritmetica.division(numeroUno,numeroDos)
+                val mensaje = Mensajes("El resultado fue $division", this)
+                mensaje.mostrarToast()
             }
         }
 
